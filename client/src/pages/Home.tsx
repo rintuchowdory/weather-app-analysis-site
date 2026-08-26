@@ -17,7 +17,7 @@ export default function Home() {
       <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur">
         <div className="container flex items-center justify-between py-4">
           <div className="flex items-center gap-3">
-            <img src="/manus-storage/logo_c1a8d181.png" alt="Logo" className="h-8 w-8" />
+            <img src={`${import.meta.env.BASE_URL}weather-logo.svg`} alt="Logo" className="h-8 w-8" />
             <h1 className="text-xl font-bold text-foreground">CurrentWeatherApp Analysis</h1>
           </div>
           <nav className="hidden md:flex gap-6">
@@ -70,7 +70,7 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-foreground mb-6">Architecture Overview</h2>
           
           <div className="mb-8">
-            <img src="/manus-storage/architecture-diagram_86d027ff.png" alt="Architecture Diagram" className="w-full rounded-lg border border-border shadow-sm" />
+            <img src={`${import.meta.env.BASE_URL}architecture-diagram.svg`} alt="Architecture Diagram" className="w-full rounded-lg border border-border shadow-sm" />
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 mb-8">

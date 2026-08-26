@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Architecture Diagram</title><desc id="desc">UI, Auth, Weather, and Database services</desc>
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#334155"/><stop offset="1" stop-color="#0f766e"/></linearGradient></defs>
+  <rect width="1200" height="800" rx="36" fill="url(#g)"/>
+  <circle cx="936" cy="176" r="128" fill="#ffffff" opacity=".14"/>
+  <path d="M0 624 C 216 440, 456 768, 696 576 S 1032 432, 1200 608 L 1200 800 L0 800 Z" fill="#ffffff" opacity=".12"/>
+  <text x="72" y="424" font-family="Arial, sans-serif" font-size="64" font-weight="700" fill="#ffffff">Architecture</text>
+  <text x="76" y="496" font-family="Arial, sans-serif" font-size="26" fill="#ffffff" opacity=".85">UI, Auth, Weather, and Database services</text>
+</svg>
