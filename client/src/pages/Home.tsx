@@ -396,6 +396,7 @@ const SERVICES = [
     icon: Server,
     color: "text-sky-400",
     title: "UI Service",
+    badge: ":3000",
     description:
       "Node.js/Express service serving the web interface, managing sessions via JWTs, and proxying requests to the auth and weather services.",
     details: [
@@ -408,6 +409,7 @@ const SERVICES = [
     icon: Lock,
     color: "text-amber-400",
     title: "Auth Service",
+    badge: ":8080",
     description:
       "Go service (Gin) handling registration and login against MySQL, issuing JWTs for sessions.",
     details: [
@@ -420,6 +422,7 @@ const SERVICES = [
     icon: GitBranch,
     color: "text-emerald-400",
     title: "Weather Service",
+    badge: ":5000",
     description:
       "Python/Flask service providing weather data by querying the weatherapi.com endpoint via RapidAPI.",
     details: [
@@ -432,6 +435,7 @@ const SERVICES = [
     icon: Database,
     color: "text-violet-400",
     title: "Database",
+    badge: "MySQL",
     description:
       "MySQL instance used by the auth service to store registered users, persisted via a Docker volume.",
     details: [
@@ -1069,7 +1073,7 @@ export default function Home() {
                           <service.icon className="h-5 w-5" />
                         </span>
                         <span className="rounded-full border border-border px-2 py-0.5 font-mono text-[10px] text-muted-foreground transition-colors group-hover:border-primary/40 group-hover:text-primary">
-                          :{service.details[0][1]}
+                          {service.badge}
                         </span>
                       </div>
                       <h3 className="mt-3 font-semibold">{service.title}</h3>
