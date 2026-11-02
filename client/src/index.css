@@ -263,16 +263,84 @@ body {
 }
 
 @media print {
+  html,
+  body {
+    background: #ffffff !important;
+    background-image: none !important;
+    color: #111827 !important;
+  }
+
   .panel {
-    background: #ffffff;
-    border-color: #d4d4d8;
-    backdrop-filter: none;
-    box-shadow: none;
+    background: #ffffff !important;
+    border: 1px solid #d4d4d8 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    color: #111827 !important;
+    break-inside: avoid;
+  }
+
+  .panel-hover:hover {
+    transform: none !important;
+  }
+
+  .text-foreground,
+  .text-white {
+    color: #111827 !important;
+  }
+
+  .text-muted-foreground {
+    color: #4b5563 !important;
+  }
+
+  .text-primary {
+    color: #4338ca !important;
+  }
+
+  .bg-primary {
+    background: #eef2ff !important;
+    border: 1px solid #4338ca !important;
+  }
+
+  .text-primary-foreground {
+    color: #111827 !important;
+  }
+
+  .text-red-200\/90,
+  .text-red-300,
+  .text-red-400 {
+    color: #b91c1c !important;
+  }
+
+  .text-amber-300,
+  .text-amber-400 {
+    color: #b45309 !important;
+  }
+
+  .text-yellow-200,
+  .text-yellow-300 {
+    color: #a16207 !important;
+  }
+
+  .text-emerald-300,
+  .text-emerald-400 {
+    color: #047857 !important;
+  }
+
+  .bg-muted {
+    background: #f3f4f6 !important;
+  }
+
+  .bg-black\/40 {
+    background: #f9fafb !important;
   }
 
   .text-gradient {
-    color: #111827;
-    -webkit-text-fill-color: #111827;
-    background: none;
+    color: #111827 !important;
+    -webkit-text-fill-color: #111827 !important;
+    background: none !important;
+  }
+
+  pre {
+    color: #111827 !important;
   }
 }
