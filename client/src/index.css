@@ -3,6 +3,12 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -125,12 +131,12 @@ html {
 }
 
 body {
-  background-image:
-    radial-gradient(ellipse 60% 40% at 50% -10%, rgba(99, 102, 241, 0.14), transparent),
-    linear-gradient(rgba(99, 102, 241, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(99, 102, 241, 0.035) 1px, transparent 1px);
-  background-size: 100% 100%, 44px 44px, 44px 44px;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  background-color: #0b0d14;
+  background-image: radial-gradient(ellipse 70% 50% at 50% -20%, rgba(99, 102, 241, 0.16), transparent 70%);
   background-attachment: fixed;
+  overflow-x: hidden;
 }
 
 ::selection {
@@ -141,5 +147,132 @@ body {
   body {
     background: #ffffff;
     background-image: none;
+  }
+}
+
+/* ---------- Dashboard shell & animated background ---------- */
+
+@keyframes auroraDrift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(5%, -4%, 0) scale(1.12);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+.aurora {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.55;
+  will-change: transform;
+}
+
+.aurora-one {
+  width: 46rem;
+  height: 46rem;
+  left: -16rem;
+  top: -20rem;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.55), transparent 68%);
+  animation: auroraDrift 28s ease-in-out infinite;
+}
+
+.aurora-two {
+  width: 38rem;
+  height: 38rem;
+  right: -14rem;
+  top: 8%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.32), transparent 68%);
+  animation: auroraDrift 34s ease-in-out infinite reverse;
+}
+
+.aurora-three {
+  width: 44rem;
+  height: 44rem;
+  left: 28%;
+  bottom: -24rem;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.26), transparent 68%);
+  animation: auroraDrift 42s ease-in-out infinite;
+}
+
+.grid-overlay {
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.07) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(ellipse 85% 60% at 50% 0%, #000 20%, transparent 78%);
+  mask-image: radial-gradient(ellipse 85% 60% at 50% 0%, #000 20%, transparent 78%);
+}
+
+@layer components {
+  .panel {
+    background: linear-gradient(158deg, rgba(30, 36, 53, 0.82), rgba(14, 17, 26, 0.74));
+    border: 1px solid rgba(148, 163, 184, 0.14);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.04),
+      0 24px 48px -32px rgba(0, 0, 0, 0.9);
+  }
+
+  .panel-hover {
+    transition:
+      border-color 180ms ease,
+      transform 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  .panel-hover:hover {
+    border-color: rgba(129, 140, 248, 0.42);
+    transform: translateY(-2px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.06),
+      0 28px 56px -30px rgba(56, 48, 130, 0.55);
+  }
+}
+
+.text-gradient {
+  background: linear-gradient(100deg, #f5f6fa 10%, #a5b4fc 55%, #67e8f9 95%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.thin-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.thin-scroll::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.28);
+  border-radius: 9999px;
+}
+
+.thin-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora {
+    animation: none;
+  }
+}
+
+@media print {
+  .panel {
+    background: #ffffff;
+    border-color: #d4d4d8;
+    backdrop-filter: none;
+    box-shadow: none;
+  }
+
+  .text-gradient {
+    color: #111827;
+    -webkit-text-fill-color: #111827;
+    background: none;
   }
 }
